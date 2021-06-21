@@ -4,7 +4,7 @@
  *
  * @author Piyush Shaw
  * @version 1.0
- * @since 18-06-2021
+ * @since 19-06-2021
  * **************************
  */
 
@@ -14,16 +14,16 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class Registration {
-static Scanner userInput = new Scanner(System.in);
-	
-	//*To check the Format of last name*
-	public static void checkLastName() {
-		String LastName = "^[A-Z]{1}[a-z]{2,}$";
-		System.out.println("Enter the Last Name: ");
+	static Scanner userInput = new Scanner(System.in);
+
+	// * To Validate the Password :it should contain atleast 1 Numeric digit*
+	public static void checkPattern1Password() { 
+		String password =	"^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,20}";
+		System.out.println("Enter the 8 digits Password should contain atleast 1 upperCase and numeric digit : ");
 		String check = userInput.next();
-		if (Pattern.matches(LastName, check))
-			System.out.println("Enter the LastName in correct Format: ");
+		if (Pattern.matches(password, check))
+			System.out.println("Valid password");
 		else
-			System.out.println("Invalid way : please try again!!!");
+			System.out.println("Invalid: please try again!!!");
 	}
 }
